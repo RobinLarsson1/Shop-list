@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors'; // Importera cors
 import shopRouter from '../routes/shop.js';
 
-const port = 6282;
+const port = process.env.PORT || 6282;
 const app = express();
 
 app.use(cors()); // Aktivera CORS-policy
