@@ -10,7 +10,7 @@ const ShopList = () => {
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get('http://localhost:6282/api/shop');
+      const response = await axios.get('http://localhost:1811/api/shop');
       setItems(response.data);
     } catch (error) {
       console.error('Error fetching items:', error);
@@ -25,7 +25,7 @@ const ShopList = () => {
     e.preventDefault();
     if (value.trim() !== '') {
       try {
-        const response = await fetch('http://localhost:6282/api/shop', {
+        const response = await fetch('http://localhost:1811/api/shop', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ const ShopList = () => {
 
   const deleteItem = async (id) => {
     try {
-      const response = await fetch(`http://localhost:6282/api/shop/${id}`, {
+      const response = await fetch(`http://localhost:1811/api/shop/${id}`, {
         method: 'DELETE',
       });
       if (response.status === 200) {
