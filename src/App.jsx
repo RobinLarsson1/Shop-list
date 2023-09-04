@@ -3,14 +3,15 @@ import axios from 'axios';
 import { AiFillDelete } from 'react-icons/ai';
 import "./App.css";
 
+const BASE_URL = 'https://shoplist-service.onrender.com'; // Uppdatera med din verkliga backend-URL
 
 const ShopList = () => {
-  const [items, setItems] = useState([])
-  const [value, setValue] = useState([])
+  const [items, setItems] = useState([]);
+  const [value, setValue] = useState('');
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get('http://localhost:1811/api/shop');
+      const response = await axios.get(`${BASE_URL}/api/shop`);
       setItems(response.data);
     } catch (error) {
       console.error('Error fetching items:', error);
@@ -25,7 +26,7 @@ const ShopList = () => {
     e.preventDefault();
     if (value.trim() !== '') {
       try {
-        const response = await fetch('http://localhost:1811/api/shop', {
+        const response = await fetch(`${BASE_URL}/api/shop`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -44,7 +45,7 @@ const ShopList = () => {
 
   const deleteItem = async (id) => {
     try {
-      const response = await fetch(`http://localhost:1811/api/shop/${id}`, {
+      const response = await fetch(`${BASE_URL}/api/shop/${id}`, {
         method: 'DELETE',
       });
       if (response.status === 200) {
@@ -60,21 +61,21 @@ const ShopList = () => {
 
   return (
     <section className="main-sect">
-    <div className='shop-div'>
-      <h1 className='shop-h1'>Inköpslista</h1>
-      <form onSubmit={handleSubmit} className='item-form'>
-        <input type="text" placeholder='Skriv in vara här' value={value} onChange={(e) => setValue(e.target.value)} className='item-input'/>
-        <button type="submit"> Lägg till </button>
-      </form>
-      <ul className='item-ul'>
-        {items.map(item => (
-          <li key={item.id} className='item-li'>
-            {item.title}
-            <AiFillDelete onClick={() => deleteItem(item.id)} className='del'/>
-          </li>
-        ))}
-      </ul>
-    </div>
+      <div className='shop-div'>
+        <h1 className='shop-h1'>Inköpslista</h1>
+        <form onSubmit={handleSubmit} className='item-form'>
+          <input type="text" placeholder='Skriv in vara här' value={value} onChange={(e) => setValue(e.target.value)} className='item-input'/>
+          <button type="submit"> Lägg till </button>
+        </form>
+        <ul className='item-ul'>
+          {items.map(item => (
+            <li key={item.id} className='item-li'>
+              {item.title}
+              <AiFillDelete onClick={() => deleteItem(item.id)} className='del'/>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 };
