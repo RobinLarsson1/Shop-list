@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { AiFillDelete } from 'react-icons/ai';
-import './app.css';
+import '../src/app.css';
 
 
 const ShopList = () => {
