@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+
+}
+body {
+    background-color: #845AFC;
+}
+.main-sect {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.shop-div {
+    background-color: #1B1A41;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 90vw; 
+    border-radius: 8px;
+    min-height: 60vh;
+    margin: 0.5em 0;
+}
+.item-ul {
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em ;
+}
+.item-li {
+    background-color: #845AFC;
+    margin-bottom: 1em;
+    color: white;
+    font-size: 20px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3em;
+    border-radius: 5px;
+    padding: 0 1em;
+}
+.del {
+    font-size: 28px;
+}
+.item-input {
+    background-color: #1B1A41;
+    border: 2px solid #845AFC;
+    width: 70%;
+    padding: 10px;
+    color: white;
+    border-radius: 5px 0px 0px 5px ;
+}
+.item-input:focus {
+    outline: none; /* Ta bort kontur vid fokus */
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2); /* Anpassa skuggan efter dina preferenser */
+}
+.item-form {
+    display: flex;
+    width: 80%;
+    height: 3em;
+}
+.item-form button {
+    width: 30%;
+    color: white;
+    background-color: #845AFC;
+    border-style: none;
+    border-radius: 0px 5px 5px 0px ;
+}
+.shop-h1 {
+    color: white;
+    font-size: 28px;
+    padding: 1em;
+}
